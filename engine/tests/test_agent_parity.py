@@ -62,7 +62,11 @@ def _renamed(want: dict, agent: str = "") -> dict:
 
 def _norm(r: dict) -> dict:
     r = _svg_norm(r)
-    r = json.loads(re.sub(r"in \d+(\.\d+)? ms", "in X ms", re.sub(r"Web search is off \([^)]*\)", "Web search is off", json.dumps(r, ensure_ascii=False))))
+    text = json.dumps(r, ensure_ascii=False)
+    # Collapse machine-specific home directories (split_command expands "~/Documents" to "$HOME/..."
+    # for real server launches) back to "~", so a fixture recorded on one machine matches any other.
+    text = re.sub(r"/(?:Users|home)/[^/\"]+|/root(?=/)", "~", text)
+    r = json.loads(re.sub(r"in \d+(\.\d+)? ms", "in X ms", re.sub(r"Web search is off \([^)]*\)", "Web search is off", text)))
     return {**r, "proposedActions": [{k: v for k, v in a.items() if k != "id"} for a in r.get("proposedActions", [])]}
 
 
