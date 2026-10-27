@@ -305,7 +305,9 @@ export async function checkProject(files: ProjectFile[], opts: { runTests?: bool
           }
         }
         if (jsTests.length) {
-          const r = await run(process.execPath, ["--test", ...jsTests.map((t) => t.path)], dir, timeout);
+          // Force the TAP reporter: Node's default is the "spec" reporter in some versions/environments,
+          // which has no `# pass`/`# fail` summary lines for us to count.
+          const r = await run(process.execPath, ["--test", "--test-reporter=tap", ...jsTests.map((t) => t.path)], dir, timeout);
           output += r.timedOut ? `JavaScript tests timed out after ${timeout / 1000}s.\n` : r.out + "\n";
           passed += Number(/^# pass (\d+)/m.exec(r.out)?.[1] ?? 0);
           failed += Number(/^# fail (\d+)/m.exec(r.out)?.[1] ?? 0) + (r.timedOut ? 1 : 0);
