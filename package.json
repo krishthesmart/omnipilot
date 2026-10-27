@@ -17,7 +17,7 @@
     "package:extension": "node scripts/package-extension.mjs",
     "train": "bash training/train.sh",
     "knowledge": "uv run --python 3.12 --with pyarrow==25.0.1 scripts/build-knowledge.py",
-    "test:engine": "uv run --project engine pytest -q",
+    "test:engine": "uv run --directory engine pytest -q",
     "service:install": "node scripts/service.mjs install",
     "service:status": "node scripts/service.mjs status",
     "service:restart": "node scripts/service.mjs restart",

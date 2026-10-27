@@ -67,7 +67,7 @@ export function rescanFile(workspaceRoot: string, rel: string, quiet = false): C
 /** Scans every code file now. `quiet` records issues without alerting (used at startup). */
 export function scanAll(workspaceRoot: string, quiet = false): { files: number; issues: number; fresh: CodeAlert[] } {
   const root = path.join(workspaceRoot, "code");
-  const files = listCodeFiles(root).map((f) => path.relative(workspaceRoot, f));
+  const files = listCodeFiles(root).map((f) => path.relative(workspaceRoot, f).split(path.sep).join("/"));
   const fresh = files.flatMap((rel) => rescanFile(workspaceRoot, rel, quiet));
   // Files that were deleted: their issues go too.
   const known = new Set(files);
@@ -102,7 +102,7 @@ export function startCodeWatch(workspaceRoot: string) {
   try {
     watcher = fs.watch(root, { recursive: true }, (_event, name) => {
       if (!name || !CODE_EXT.test(name)) return;
-      const rel = path.relative(workspaceRoot, path.join(root, name.toString()));
+      const rel = path.relative(workspaceRoot, path.join(root, name.toString())).split(path.sep).join("/");
       // Editors save in bursts: wait for the file to settle.
       clearTimeout(timers.get(rel));
       timers.set(

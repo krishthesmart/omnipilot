@@ -22,3 +22,8 @@ deploy/cloudflare/.wrangler
 
 # Backups of key files
 .env.bak
+
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo

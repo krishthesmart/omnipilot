@@ -76,7 +76,14 @@ for path in sys.argv[1:]:
         elif isinstance(node, ast.ImportFrom):
             imports.append({"module": node.module or "", "names": [a.name for a in node.names], "level": node.level, "line": node.lineno})
     out[path] = {"imports": imports, "names": sorted(names)}
-print(json.dumps({"files": out, "stdlib": sorted(getattr(sys, "stdlib_module_names", []))}))
+# sys.stdlib_module_names is Python 3.10+; older versions (e.g. macOS's system 3.9) lack it, so
+# fall back to the C builtins plus whatever lives in the standard library directory. Without this
+# every import looks third-party, and the project's tests are wrongly skipped as "needs packages".
+stdlib = getattr(sys, "stdlib_module_names", None)
+if not stdlib:
+    import os.path, pkgutil
+    stdlib = set(sys.builtin_module_names) | {m.name for m in pkgutil.iter_modules([os.path.dirname(os.__file__)])}
+print(json.dumps({"files": out, "stdlib": sorted(stdlib)}))
 `;
 
 const PY_DENY = /\bimport\s+(subprocess|socket|ctypes|multiprocessing|requests|urllib3?|httpx|ftplib|smtplib|telnetlib|shutil)\b|\bfrom\s+(subprocess|socket|ctypes|multiprocessing|requests|urllib3?|http|httpx|ftplib|smtplib|shutil)\b|\bos\.(system|popen|exec\w*|spawn\w*|remove|unlink|rmdir|removedirs|kill|fork)\b|\b(eval|exec|__import__)\s*\(/;

@@ -543,16 +543,16 @@ export const codePilotAgent: AgentFn = async (input, ctx) => {
     const files = helperFiles(input, ctx.workspaceRoot);
     for (const file of files) {
       assertNotAborted(ctx);
-      findings.push(...scanSource(path.relative(ctx.workspaceRoot, file), fs.readFileSync(file, "utf8")));
+      findings.push(...scanSource(path.relative(ctx.workspaceRoot, file).split(path.sep).join("/"), fs.readFileSync(file, "utf8")));
     }
-    scannedDescription = `${files.length} code file(s) Helper located (${files.map((f) => path.relative(ctx.workspaceRoot, f)).join(", ")})`;
+    scannedDescription = `${files.length} code file(s) Helper located (${files.map((f) => path.relative(ctx.workspaceRoot, f).split(path.sep).join("/")).join(", ")})`;
     logAgentAction(input.runId, "CodePilot", "scan_code", { source: "helper_results", filesScanned: files.length }, "completed");
   } else {
     const codeRoot = path.join(ctx.workspaceRoot, "code");
     const files = listCodeFiles(codeRoot);
     for (const file of files) {
       assertNotAborted(ctx);
-      const rel = path.relative(ctx.workspaceRoot, file);
+      const rel = path.relative(ctx.workspaceRoot, file).split(path.sep).join("/");
       findings.push(...scanSource(rel, fs.readFileSync(file, "utf8")));
     }
     scannedDescription = `${files.length} approved code file(s) in the workspace`;

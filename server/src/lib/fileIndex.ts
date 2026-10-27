@@ -63,7 +63,7 @@ class FileIndex {
         const full = path.join(dir, e.name);
         if (e.isDirectory()) stack.push(full);
         else if (e.isFile() && TEXT_EXT.test(e.name)) {
-          const rel = path.relative(this.root, full);
+          const rel = path.relative(this.root, full).split(path.sep).join("/");
           seen.add(rel);
           const st = fs.statSync(full);
           if (st.size > MAX_FILE_BYTES) continue;
@@ -88,7 +88,7 @@ class FileIndex {
         else postings.set(w, [i + 1]);
       }
     });
-    const parts = rel.split(path.sep);
+    const parts = rel.split("/");
     return { rel, mtimeMs, lines, postings, pathWords: new Set(words(rel.replace(/[-_.]/g, " "))), project: parts.length > 1 ? parts[0] : "" };
   }
 
@@ -96,7 +96,7 @@ class FileIndex {
   private findProjects(): Project[] {
     const folders = new Set<string>();
     for (const f of this.files.values()) {
-      const parts = f.rel.split(path.sep);
+      const parts = f.rel.split("/");
       if (parts.length > 1) folders.add(parts[0]);
       const base = path.basename(f.rel).toLowerCase();
       if (/^(readme(\.\w+)?|package\.json|pyproject\.toml|cargo\.toml|platformio\.ini)$/.test(base)) folders.add(path.dirname(f.rel));
@@ -104,7 +104,7 @@ class FileIndex {
     return [...folders]
       .filter((d) => d && d !== ".")
       .map((folder) => {
-        const files = [...this.files.keys()].filter((r) => r === folder || r.startsWith(folder + path.sep));
+        const files = [...this.files.keys()].filter((r) => r === folder || r.startsWith(folder + "/"));
         const readme = files.find((r) => /readme/i.test(path.basename(r)) && path.dirname(r) === folder);
         const pkg = files.find((r) => path.basename(r) === "package.json" && path.dirname(r) === folder);
         let name = path.basename(folder).replace(/[-_]/g, " ");
@@ -155,7 +155,7 @@ class FileIndex {
       const inPath = q.filter((w) => [...f.pathWords].some((pw) => pw.startsWith(w)));
       if (matched.length === 0 && inPath.length === 0) continue;
       const freq = matched.reduce((n, w) => n + Math.min(5, f.postings.get(w)!.length), 0);
-      const boost = [...projectBoost].find(([folder]) => f.rel === folder || f.rel.startsWith(folder + path.sep))?.[1] ?? 0;
+      const boost = [...projectBoost].find(([folder]) => f.rel === folder || f.rel.startsWith(folder + "/"))?.[1] ?? 0;
       const score = inPath.length * 4 + matched.length * 3 + freq * 0.3 + boost * 2;
       const lineNos = Array.from(new Set(matched.flatMap((w) => f.postings.get(w)!))).sort((a, b) => a - b).slice(0, 6);
       hits.push({ file: f.rel, project: f.project, score, lines: lineNos.map((n) => ({ line: n, text: f.lines[n - 1].trim().slice(0, 240) })) });
