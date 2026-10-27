@@ -1,0 +1,4 @@
+# Consistent line endings on every OS (Windows checkouts included).
+* text=auto eol=lf
+*.png binary
+*.zip binary

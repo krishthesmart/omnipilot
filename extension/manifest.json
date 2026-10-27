@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "OmniPilot Watcher",
+  "version": "1.1.0",
+  "description": "Keeps browsing on the task a parent sets in OmniPilot (e.g. \"learn math, no AI\"): blocks AI tools, AI extensions and off-task sites.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "declarativeNetRequest",
+    "management",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "blocked.js",
+        "blocked.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "OmniPilot Watcher",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "omnipilot-watcher@omnipilot.app",
+      "strict_min_version": "121.0"
+    }
+  },
+  "minimum_chrome_version": "121"
+}

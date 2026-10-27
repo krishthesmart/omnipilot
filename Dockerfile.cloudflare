@@ -1,0 +1,42 @@
+# OmniPilot for Cloudflare Containers (see deploy/cloudflare/README.md). The same app as Dockerfile,
+# plus Litestream and rclone: Cloudflare wipes a container's disk when it sleeps, so the database is
+# streamed to R2 continuously and the workspace files are synced there, and both come back on start.
+
+FROM --platform=linux/amd64 node:22.13-bookworm-slim AS build
+WORKDIR /app
+COPY package.json package-lock.json .npmrc ./
+COPY server/package.json server/
+COPY web/package.json web/
+RUN npm ci --include=dev --no-audit --no-fund
+COPY server server
+COPY web web
+RUN npm run build --workspace server && npm run build --workspace web \
+ && npm prune --omit=dev --workspaces --no-audit --no-fund
+
+FROM --platform=linux/amd64 node:22.13-bookworm-slim
+ARG LITESTREAM_VERSION=0.3.13
+RUN apt-get update && apt-get install -y --no-install-recommends python3 tini ca-certificates curl rclone \
+ && curl -fsSL -o /tmp/litestream.deb "https://github.com/benbjohnson/litestream/releases/download/v${LITESTREAM_VERSION}/litestream-v${LITESTREAM_VERSION}-linux-amd64.deb" \
+ && dpkg -i /tmp/litestream.deb && rm /tmp/litestream.deb \
+ && apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+ENV NODE_ENV=production \
+    HOST=0.0.0.0 \
+    PORT=8080 \
+    OMNIPILOT_DATA_DIR=/data \
+    OMNIPILOT_WORKSPACE=/data/workspace \
+    PYTHON=python3
+COPY --from=build /app/package.json ./
+COPY --from=build /app/node_modules node_modules
+COPY --from=build /app/server/package.json server/
+COPY --from=build /app/server/dist server/dist
+COPY --from=build /app/web/dist web/dist
+COPY server/workspace/code server/workspace-seed/code
+COPY server/workspace/docs server/workspace-seed/docs
+COPY server/workspace/notes server/workspace-seed/notes
+COPY server/workspace/robotics-arm server/workspace-seed/robotics-arm
+COPY scripts/cloudflare-entrypoint.sh /usr/local/bin/omnipilot-start
+RUN chmod +x /usr/local/bin/omnipilot-start && mkdir -p /data && chown -R node:node /data /app
+USER node
+EXPOSE 8080
+ENTRYPOINT ["tini", "--", "omnipilot-start"]

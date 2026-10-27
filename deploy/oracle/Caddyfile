@@ -1,0 +1,7 @@
+# Free automatic HTTPS for OmniPilot. Caddy gets and renews the certificate by itself.
+{$OMNIPILOT_DOMAIN} {
+	reverse_proxy omnipilot:8080 {
+		# Live answers (server-sent events) are passed through as they're written.
+		flush_interval -1
+	}
+}

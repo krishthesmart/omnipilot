@@ -1,0 +1,33 @@
+# Fly.io: an always-on OmniPilot. See docs/DEPLOY.md.
+#   fly launch --no-deploy --copy-config   (pick a unique app name)
+#   fly volumes create omnipilot_data --size 1
+#   fly secrets set OMNIPILOT_PASSWORD='a long password' GROQ_API_KEY=gsk_... OMNIPILOT_PUBLIC_URL=https://<app>.fly.dev
+#   fly deploy
+app = "omnipilot"
+primary_region = "iad"
+
+[build]
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  # Routines need it running all the time.
+  auto_stop_machines = "off"
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[http_service.checks]]
+  path = "/api/health"
+  interval = "30s"
+  timeout = "5s"
+
+[mounts]
+  source = "omnipilot_data"
+  destination = "/data"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"

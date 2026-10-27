@@ -1,0 +1,51 @@
+# OmniPilot on a free always-on server (Oracle Cloud Always Free, or any Linux machine), at a free
+# permanent address with HTTPS: https://<name>.duckdns.org. Set up by install.sh; see README.md.
+services:
+  omnipilot:
+    build: ../..
+    restart: always
+    env_file: ../../server/.env
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "8080"
+      OMNIPILOT_PUBLIC_URL: "https://${OMNIPILOT_DOMAIN}"
+      TZ: "${TZ:-UTC}"
+    volumes:
+      - omnipilot-data:/data
+    expose:
+      - "8080"
+
+  # HTTPS with free certificates (Let's Encrypt), renewed automatically.
+  caddy:
+    image: caddy:2.8.4
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      OMNIPILOT_DOMAIN: "${OMNIPILOT_DOMAIN}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - omnipilot
+
+  # Keeps the free DuckDNS name pointed at this server's address.
+  duckdns:
+    image: alpine:3.20
+    restart: always
+    environment:
+      DUCKDNS_SUBDOMAIN: "${DUCKDNS_SUBDOMAIN}"
+      DUCKDNS_TOKEN: "${DUCKDNS_TOKEN}"
+    command: >
+      sh -c 'apk add --no-cache curl >/dev/null &&
+             while true; do
+               curl -fsS "https://www.duckdns.org/update?domains=$${DUCKDNS_SUBDOMAIN}&token=$${DUCKDNS_TOKEN}&ip=" -o /dev/null || echo "DuckDNS update failed";
+               sleep 300;
+             done'
+
+volumes:
+  omnipilot-data:
+  caddy-data:
+  caddy-config:

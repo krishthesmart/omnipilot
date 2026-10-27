@@ -1,0 +1,24 @@
+node_modules/
+dist/
+release/
+server/data/
+coverage/
+*.log
+*.tsbuildinfo
+.env
+.DS_Store
+.qodo/
+
+# Model training (rebuildable; see training/README.md)
+training/.venv/
+training/work/
+
+# Built VS Code extension package (node scripts/package-vscode.mjs)
+ide/vscode/*.vsix
+
+# Cloudflare deploy
+deploy/cloudflare/node_modules
+deploy/cloudflare/.wrangler
+
+# Backups of key files
+.env.bak

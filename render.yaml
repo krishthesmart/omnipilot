@@ -1,0 +1,20 @@
+# Render Blueprint: OmniPilot on the free plan. scripts/deploy_render.py creates this service through
+# Render's API and fills in the secrets (values never printed); deploy/render/README.md explains it.
+services:
+  - type: web
+    name: omnipilot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./deploy/render/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/engine/health
+    autoDeploy: true
+    envVars:
+      - key: OMNIPILOT_PASSWORD
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: OMNIPILOT_SYNC_REPO
+        sync: false

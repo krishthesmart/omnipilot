@@ -1,0 +1,779 @@
+{
+  "about": "Keyword scores per phrase. See server/scripts/contracts.mts.",
+  "phrases": [
+    {
+      "text": "How many r's are in strawberry?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "convert 5 miles to km",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Is it true that (a+b)^2 = a^2 + b^2?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 1,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Why is the sky blue?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Write a Python function that reverses a string",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 1,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Check my code for security bugs: const q = 'SELECT * FROM users WHERE id=' + req.query.id; db.query(q);",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 3,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Explain photosynthesis for a 5th grader",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 2,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "How do I connect an LED to my Arduino?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 1,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "How do I connect a button to my Arduino and how does it work?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 0,
+        "HardwarePilot": 1,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Draw a cat and a dog under a rainbow",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 1,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Draw a gory scene",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 1,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "My kid should learn math for 1 hour, no AI",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 1,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Simulate a projectile launched at 25 m/s at 45 degrees",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 3,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Compare Linear A and Linear B",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 1,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Refine my Midjourney prompt: a cat in space",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 1,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Do my homework for me: solve all of these math problems",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 1,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Connect Slack",
+      "scores": {
+        "InfraPilot": 1,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Is 97 prime?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "and is 91 prime?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Research how to improve my project, check my code for issues, and create a study plan.",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 3,
+        "CodePilot": 2,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "connect an LED to my arduino",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 1,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Connect Slack and schedule a daily status update",
+      "scores": {
+        "InfraPilot": 2,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "block youtube and games during homework",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 1,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 1,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "is khanacademy.org allowed?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 1,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "check if a number is even",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "fix the bug in my script",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 1,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "what's wrong with this code",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 1,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "teach me fractions with flashcards",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "make a picture of a dragon",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 2,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "draw a wiring diagram for a servo",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 1,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "draw a graph of y = x^2",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Is it true that sin(x)^2 + cos(x)^2 = 1?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 1,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "Solve 3x + 4 = 19",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "what has MathPilot found?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 1,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "simulate population growth of rabbits",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 2,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "compare cuneiform and hieroglyphs",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 2,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "rephrase my prompt for ChatGPT",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 2,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "how does it work?",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 1,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "plug in my monitor with HDMI",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 2,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "my son needs focus time for reading, no AI",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 2,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "unblock wikipedia",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 1,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "find my notes about the project",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 2,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    },
+    {
+      "text": "",
+      "scores": {
+        "InfraPilot": 0,
+        "Helper": 0,
+        "CodePilot": 0,
+        "PromptPilot": 0,
+        "ScienceLab": 0,
+        "ScriptScholar": 0,
+        "LearnPilot": 0,
+        "WatcherPilot": 0,
+        "HardwarePilot": 0,
+        "MathPilot": 0,
+        "PicturePilot": 0,
+        "SchoolPilot": 0,
+        "ModelPilot": 0
+      }
+    }
+  ]
+}

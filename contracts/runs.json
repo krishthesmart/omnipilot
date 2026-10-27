@@ -1,0 +1,862 @@
+{
+  "about": "Reference runs (keyword routing, no model). See server/scripts/contracts.mts.",
+  "cases": [
+    {
+      "name": "letter count tool",
+      "turns": [
+        {
+          "message": "How many r's are in strawberry?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "Helper"
+          ],
+          "selected": [
+            "Helper"
+          ],
+          "steps": [
+            {
+              "agent": "Helper",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "Helper",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "There are **3** \"r\"s in \"strawberry\": st**r**awbe**rr**y"
+        }
+      ]
+    },
+    {
+      "name": "unit conversion tool",
+      "turns": [
+        {
+          "message": "convert 5 miles to km",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "Helper"
+          ],
+          "selected": [
+            "Helper"
+          ],
+          "steps": [
+            {
+              "agent": "Helper",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "Helper",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "5 mi = **8.0467 km**"
+        }
+      ]
+    },
+    {
+      "name": "identity check",
+      "turns": [
+        {
+          "message": "Is it true that (a+b)^2 = a^2 + b^2?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "MathPilot"
+          ],
+          "selected": [
+            "MathPilot"
+          ],
+          "steps": [
+            {
+              "agent": "MathPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "MathPilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "❌ **Not true**: `(a+b)^2 = a^2 + b^2`\n\nNot an identity: at a"
+        }
+      ]
+    },
+    {
+      "name": "general question without a model",
+      "turns": [
+        {
+          "message": "Why is the sky blue?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "Helper"
+          ],
+          "selected": [
+            "Helper"
+          ],
+          "steps": [
+            {
+              "agent": "Helper",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "Helper",
+              "status": "partial_success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "**That isn't possible right now.**\n- Helper: I couldn't find"
+        }
+      ]
+    },
+    {
+      "name": "code request without a model",
+      "turns": [
+        {
+          "message": "Write a Python function that reverses a string",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "CodePilot",
+            "Helper"
+          ],
+          "selected": [
+            "CodePilot"
+          ],
+          "steps": [
+            {
+              "agent": "CodePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "CodePilot",
+              "status": "partial_success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            },
+            {
+              "agent": "Helper",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": "CodePilot"
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "**Part of this isn't possible:**\n- CodePilot: Code generatio"
+        }
+      ]
+    },
+    {
+      "name": "code scan",
+      "turns": [
+        {
+          "message": "Check my code for security bugs: const q = 'SELECT * FROM users WHERE id=' + req.query.id; db.query(q);",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "CodePilot"
+          ],
+          "selected": [
+            "CodePilot"
+          ],
+          "steps": [
+            {
+              "agent": "CodePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "CodePilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "Scanned the submitted code snippet and found 1 issue(s) acro"
+        }
+      ]
+    },
+    {
+      "name": "lesson",
+      "turns": [
+        {
+          "message": "Explain photosynthesis for a 5th grader",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "LearnPilot"
+          ],
+          "selected": [
+            "LearnPilot"
+          ],
+          "steps": [
+            {
+              "agent": "LearnPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "LearnPilot",
+              "status": "partial_success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "**General study plan (concept not explicitly stated)** (leve"
+        }
+      ]
+    },
+    {
+      "name": "wiring guide",
+      "turns": [
+        {
+          "message": "How do I connect an LED to my Arduino?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "HardwarePilot"
+          ],
+          "selected": [
+            "HardwarePilot"
+          ],
+          "steps": [
+            {
+              "agent": "HardwarePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "HardwarePilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [
+            "wiring-diagram"
+          ],
+          "answerStartsWith": "**Blink an LED with an Arduino**\n\n1. Connect pin D13 on the "
+        }
+      ]
+    },
+    {
+      "name": "wiring + lesson (dependent agents)",
+      "turns": [
+        {
+          "message": "How do I connect a button to my Arduino and how does it work?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "HardwarePilot",
+            "LearnPilot"
+          ],
+          "selected": [
+            "LearnPilot",
+            "HardwarePilot"
+          ],
+          "steps": [
+            {
+              "agent": "LearnPilot",
+              "dependsOn": [
+                "HardwarePilot"
+              ],
+              "afterAll": false
+            },
+            {
+              "agent": "HardwarePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "HardwarePilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            },
+            {
+              "agent": "LearnPilot",
+              "status": "partial_success",
+              "usedResultsFrom": [
+                "HardwarePilot"
+              ],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [
+            "wiring-diagram"
+          ],
+          "answerStartsWith": "**Read a push button with an Arduino**\n\n1. Connect pin D2 to"
+        }
+      ]
+    },
+    {
+      "name": "picture",
+      "turns": [
+        {
+          "message": "Draw a cat and a dog under a rainbow",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "PicturePilot"
+          ],
+          "selected": [
+            "PicturePilot"
+          ],
+          "steps": [
+            {
+              "agent": "PicturePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "PicturePilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [
+            "picture"
+          ],
+          "answerStartsWith": "Here's your picture: **Cat and a dog under a rainbow**."
+        }
+      ]
+    },
+    {
+      "name": "unsafe picture",
+      "turns": [
+        {
+          "message": "Draw a gory scene",
+          "status": "needs_clarification",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "clarification_needed"
+          ],
+          "agentsStarted": [
+            "PicturePilot"
+          ],
+          "selected": [
+            "PicturePilot"
+          ],
+          "steps": [
+            {
+              "agent": "PicturePilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "PicturePilot",
+              "status": "failed_safe",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "I can't make that kind of picture. I'm happy to draw somethi"
+        }
+      ]
+    },
+    {
+      "name": "focus session",
+      "turns": [
+        {
+          "message": "My kid should learn math for 1 hour, no AI",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "WatcherPilot"
+          ],
+          "selected": [
+            "WatcherPilot"
+          ],
+          "steps": [
+            {
+              "agent": "WatcherPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "WatcherPilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [
+            "watcher-setup"
+          ],
+          "answerStartsWith": "Here's the focus session I'll set up. **A parent needs to co"
+        }
+      ]
+    },
+    {
+      "name": "science simulation",
+      "turns": [
+        {
+          "message": "Simulate a projectile launched at 25 m/s at 45 degrees",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "ScienceLab"
+          ],
+          "selected": [
+            "ScienceLab"
+          ],
+          "steps": [
+            {
+              "agent": "ScienceLab",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "ScienceLab",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "Ran projectile simulation. Projectile launched at 25 m/s, 45"
+        }
+      ]
+    },
+    {
+      "name": "ancient scripts",
+      "turns": [
+        {
+          "message": "Compare Linear A and Linear B",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "ScriptScholar"
+          ],
+          "selected": [
+            "ScriptScholar"
+          ],
+          "steps": [
+            {
+              "agent": "ScriptScholar",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "ScriptScholar",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "Compared 2 scripts: Linear B, Linear A.\n\nLinear B vs Linear "
+        }
+      ]
+    },
+    {
+      "name": "prompt refinement",
+      "turns": [
+        {
+          "message": "Refine my Midjourney prompt: a cat in space",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "PromptPilot"
+          ],
+          "selected": [
+            "PromptPilot"
+          ],
+          "steps": [
+            {
+              "agent": "PromptPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "PromptPilot",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "**Refined prompt for space:**\n\n```\na cat in space, detailed "
+        }
+      ]
+    },
+    {
+      "name": "homework cheating blocked",
+      "turns": [
+        {
+          "message": "Do my homework for me: solve all of these math problems",
+          "status": "needs_clarification",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "clarification_needed"
+          ],
+          "agentsStarted": [
+            "LearnPilot",
+            "SchoolPilot"
+          ],
+          "selected": [
+            "LearnPilot",
+            "SchoolPilot"
+          ],
+          "steps": [
+            {
+              "agent": "LearnPilot",
+              "dependsOn": [],
+              "afterAll": false
+            },
+            {
+              "agent": "SchoolPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "LearnPilot",
+              "status": "failed_safe",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            },
+            {
+              "agent": "SchoolPilot",
+              "status": "failed_safe",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "Request blocked by LearnPilot's safety policy: The request a"
+        }
+      ]
+    },
+    {
+      "name": "integration request",
+      "turns": [
+        {
+          "message": "Connect Slack",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "InfraPilot"
+          ],
+          "selected": [
+            "InfraPilot"
+          ],
+          "steps": [
+            {
+              "agent": "InfraPilot",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "InfraPilot",
+              "status": "needs_connection",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "Slack is not connected yet. Use the **Connect** button on it"
+        }
+      ]
+    },
+    {
+      "name": "follow-up",
+      "turns": [
+        {
+          "message": "Is 97 prime?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "Helper"
+          ],
+          "selected": [
+            "Helper"
+          ],
+          "steps": [
+            {
+              "agent": "Helper",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "Helper",
+              "status": "success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": null,
+          "attachments": [],
+          "answerStartsWith": "**Yes**, 97 is prime."
+        },
+        {
+          "message": "and is 91 prime?",
+          "status": "completed",
+          "phases": [
+            "run_started",
+            "router_plan",
+            "coordinator_plan",
+            "synthesizer_start",
+            "synthesizer_draft",
+            "router_review_start",
+            "router_review",
+            "final_response"
+          ],
+          "agentsStarted": [
+            "Helper"
+          ],
+          "selected": [
+            "Helper"
+          ],
+          "steps": [
+            {
+              "agent": "Helper",
+              "dependsOn": [],
+              "afterAll": false
+            }
+          ],
+          "results": [
+            {
+              "agent": "Helper",
+              "status": "partial_success",
+              "usedResultsFrom": [],
+              "coveringFor": null
+            }
+          ],
+          "standalone": "and is 91 prime? (following up on: \"Is 97 prime?\")",
+          "attachments": [],
+          "answerStartsWith": "**That isn't possible right now.**\n- Helper: I couldn't find"
+        }
+      ]
+    }
+  ]
+}

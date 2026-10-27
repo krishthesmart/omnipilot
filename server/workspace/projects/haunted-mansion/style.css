@@ -1,0 +1,129 @@
+/* Haunted Mansion – Dark theme UI styling */
+
+/* Root variables for easy theming */
+:root {
+  --bg-color: #0a0a0a;
+  --room-bg: #1e1e1e;
+  --room-border: #333;
+  --player-color: #4caf50;
+  --ghost-color: #ff5252;
+  --item-color: #ffd700;
+  --text-color: #e0e0e0;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Global page styling */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Layout containers */
+#game-area {
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg-color);
+  border-bottom: 2px solid var(--room-border);
+}
+
+#inventory,
+#status {
+  padding: 0.5rem 1rem;
+  background: var(--room-bg);
+  border-top: 2px solid var(--room-border);
+  overflow-x: auto;
+}
+
+/* Individual room – a square cell */
+.room {
+  width: 120px;
+  height: 120px;
+  background: var(--room-bg);
+  border: 2px solid var(--room-border);
+  border-radius: 8px;
+  position: relative;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+/* Player avatar – a small circle */
+.player {
+  width: 30px;
+  height: 30px;
+  background: var(--player-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--player-color);
+}
+
+/* Ghost – a semi‑transparent circle with a flicker animation */
+.ghost {
+  width: 30px;
+  height: 30px;
+  background: var(--ghost-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+  animation: ghost-flicker 1.5s infinite;
+  box-shadow: 0 0 12px var(--ghost-color);
+}
+
+/* Ghost flicker keyframes */
+@keyframes ghost-flicker {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+/* Collectible items – small squares */
+.item {
+  width: 20px;
+  height: 20px;
+  background: var(--item-color);
+  border-radius: 4px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+/* Utility class to hide elements without affecting layout */
+.hidden {
+  display: none !important;
+}
+
+/* Simple hover/focus feedback for interactive elements */
+.room:hover,
+.room:focus-within {
+  background: #2a2a2a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .room {
+    width: 80px;
+    height: 80px;
+  }
+  .player,
+  .ghost {
+    width: 20px;
+    height: 20px;
+  }
+  .item {
+    width: 14px;
+    height: 14px;
+  }
+}

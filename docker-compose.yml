@@ -1,0 +1,17 @@
+# An always-on OmniPilot on a home server or VPS:  docker compose up -d
+# Put your keys in server/.env and set OMNIPILOT_PASSWORD and OMNIPILOT_PUBLIC_URL there too.
+services:
+  omnipilot:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file: server/.env
+    environment:
+      # These win over server/.env (which is set up for running on your computer).
+      HOST: "0.0.0.0"
+      PORT: "8080"
+    volumes:
+      - omnipilot-data:/data
+volumes:
+  omnipilot-data:

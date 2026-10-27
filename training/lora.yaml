@@ -1,0 +1,25 @@
+# LoRA fine-tune of Qwen2.5-0.5B-Instruct into omnipilot-mini: OmniPilot's whole brain (see README.md).
+model: Qwen/Qwen2.5-0.5B-Instruct
+train: true
+fine_tune_type: lora
+data: work/dataset
+adapter_path: work/adapters-brain
+mask_prompt: true          # learn only the answers, not the prompts
+num_layers: -1             # adapt every layer
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+# Small batches keep memory low (Qwen's 151k-word vocabulary makes outputs big);
+# accumulating 4 of them gives an effective batch of 8.
+batch_size: 2
+grad_accumulation_steps: 4
+grad_checkpoint: true
+iters: 4800                # about one pass over ~9.5k examples (math steps + every OmniPilot job + general)
+learning_rate: 1.0e-4
+max_seq_length: 1024
+steps_per_report: 100
+steps_per_eval: 1000
+val_batches: 25
+save_every: 1000
+seed: 7

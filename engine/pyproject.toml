@@ -1,0 +1,41 @@
+[project]
+name = "omnipilot-engine"
+version = "0.1.0"
+description = "OmniPilot's Python backend: FastAPI front door and LangGraph orchestration."
+requires-python = ">=3.12,<3.14"
+license = "MIT"
+dependencies = [
+  "fastapi==0.142.1",
+  "uvicorn==0.54.0",
+  "httpx==0.28.1",
+  "langgraph==1.2.12",
+  "pydantic==2.13.5",
+  "regex==2026.9.29",
+  "e2b==2.51.0",
+  "faster-whisper==1.2.1",
+  "av==15.1.0",
+  "stagehand==4.1.0",
+  "daytona==0.220.0",
+  "composio==0.22.0",
+  "zep-cloud==3.30.0",
+  "mcp==2.2.0",
+  "pypdf==6.19.0",
+  "nicegui==3.17.1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==9.1.1",
+  "pytest-asyncio==1.4.0",
+  "respx==0.23.1",
+]
+
+[tool.uv]
+# Supply-chain guard: every package, direct or indirect, must be at least two weeks old.
+exclude-newer = "2026-10-06T00:00:00Z"
+package = false
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = [".", "tests"]

@@ -1,0 +1,16 @@
+// A permanent link on Cloudflare's FREE plan: https://omnipilot-link.<your-subdomain>.workers.dev.
+// It forwards to the OmniPilot you share with `npm run share` (which updates the target each time).
+// Setup: deploy/cloudflare-free/README.md
+{
+  "name": "omnipilot-link",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  // The hosted OmniPilot (scripts/deploy_render.py prints its address); empty = forward to `npm run share`.
+  "vars": { "HOSTED_URL": "" },
+  // Keeps a free host from putting OmniPilot to sleep (a visit every 10 minutes).
+  "triggers": { "crons": ["*/10 * * * *"] },
+  "kv_namespaces": [
+    // Created with `npx wrangler kv namespace create LINK`.
+    { "binding": "LINK", "id": "62c1033ef3d943b48fc63cdb429ba7a0" }
+  ]
+}

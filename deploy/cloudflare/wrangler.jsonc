@@ -1,0 +1,41 @@
+// OmniPilot on Cloudflare (Workers Paid plan: containers aren't on the free plan). See README.md here.
+{
+  "name": "omnipilot",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // OmniPilot itself: the image built from Dockerfile.cloudflare at the project root.
+  "containers": [
+    {
+      "class_name": "OmniPilotContainer",
+      "image": "../../Dockerfile.cloudflare",
+      "image_build_context": "../..",
+      // basic = 1/4 vCPU, 1 GiB memory, 4 GB disk (lite's 256 MiB is too small for building projects).
+      "instance_type": "basic",
+      "max_instances": 1
+    }
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "OMNIPILOT", "class_name": "OmniPilotContainer" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["OmniPilotContainer"] }],
+
+  // Wakes OmniPilot so routines run on time (it sleeps after SLEEP_AFTER without visits).
+  // Every 30 minutes: routines run within half an hour of their time. Use "*/5 * * * *" to keep it
+  // always awake (routines on the minute, higher cost), or list your routines' times instead.
+  "triggers": { "crons": ["*/30 * * * *"] },
+
+  "vars": {
+    // Your Worker's address, e.g. https://omnipilot.<your-subdomain>.workers.dev
+    "OMNIPILOT_PUBLIC_URL": "",
+    // Routines run on this clock (the container's own clock is UTC).
+    "TZ": "America/Los_Angeles",
+    "SLEEP_AFTER": "15m",
+    "R2_BUCKET": "omnipilot-data"
+  }
+  // Secrets (wrangler secret put NAME): OMNIPILOT_PASSWORD, OMNIPILOT_CRON_SECRET, GROQ_API_KEY,
+  // R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, and any optional keys (E2B_API_KEY,
+  // BROWSERBASE_API_KEY, BROWSER_USE_API_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANGFUSE_BASE_URL).
+}

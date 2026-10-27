@@ -1,0 +1,55 @@
+{
+  "name": "omnipilot",
+  "displayName": "OmniPilot",
+  "description": "OmniPilot in VS Code: chat with all its agents, explain, fix, improve and test code with a diff you approve, and security scans in the Problems panel. Talks only to the OmniPilot running on your computer.",
+  "version": "1.3.0",
+  "publisher": "omnipilot",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Programming Languages", "Linters", "Education"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [{ "id": "omnipilot", "title": "OmniPilot", "icon": "media/omnipilot.svg" }]
+    },
+    "views": {
+      "omnipilot": [{ "type": "webview", "id": "omnipilot.chat", "name": "Chat" }]
+    },
+    "commands": [
+      { "command": "omnipilot.explain", "title": "Explain this code", "category": "OmniPilot" },
+      { "command": "omnipilot.fix", "title": "Fix bugs (review the diff first)", "category": "OmniPilot" },
+      { "command": "omnipilot.improve", "title": "Improve this code (review the diff first)", "category": "OmniPilot" },
+      { "command": "omnipilot.edit", "title": "Change this code as I describe…", "category": "OmniPilot" },
+      { "command": "omnipilot.tests", "title": "Write tests for this code", "category": "OmniPilot" },
+      { "command": "omnipilot.scan", "title": "Security scan this file", "category": "OmniPilot" },
+      { "command": "omnipilot.askSelection", "title": "Ask about the selection in chat", "category": "OmniPilot" }
+    ],
+    "menus": {
+      "editor/context": [
+        { "submenu": "omnipilot.menu", "group": "1_modification@9" }
+      ],
+      "omnipilot.menu": [
+        { "command": "omnipilot.explain" },
+        { "command": "omnipilot.fix" },
+        { "command": "omnipilot.improve" },
+        { "command": "omnipilot.edit" },
+        { "command": "omnipilot.tests" },
+        { "command": "omnipilot.scan" },
+        { "command": "omnipilot.askSelection" }
+      ]
+    },
+    "submenus": [{ "id": "omnipilot.menu", "label": "OmniPilot" }],
+    "keybindings": [
+      { "command": "omnipilot.edit", "key": "ctrl+alt+o", "mac": "cmd+alt+o", "when": "editorTextFocus" }
+    ],
+    "configuration": {
+      "title": "OmniPilot",
+      "properties": {
+        "omnipilot.serverUrl": { "type": "string", "default": "http://localhost:8899", "description": "Where OmniPilot is running (start it with `npm start` in the OmniPilot folder)." },
+        "omnipilot.scanOnSave": { "type": "boolean", "default": true, "description": "Security-scan JavaScript, TypeScript, Python and Go files when you save them." }
+      }
+    }
+  }
+}
